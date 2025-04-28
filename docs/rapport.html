@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>3D Visualization for the Web Browser</title>
+<style type="text/css">
+
+/* @import url("https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"); */
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700'); */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i|Roboto+Mono');
+/* @import url("https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css"); */
+
+body {
+    font-family: 'Merriweather', 'Times New Roman', serif;
+    font-size: 1em;
+    color: #444;
+    box-sizing: border-box;
+    font-weight: 300;
+    letter-spacing: .01em;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+hr.footer {
+    display: none;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.document,.footer{
+    position: relative;
+    width: 100%;
+    max-width: 65.0rem;
+    margin: 0 auto;
+    padding: 0 2.0rem;
+    padding-bottom: 6rem;
+    box-sizing: inherit;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    border-top: 1px solid grey;
+}
+
+.section p {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 25px 0;
+    padding: 25px 0;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 45px;
+    text-align: center;
+}
+
+.figure.align-center{
+   margin: 3rem auto; 
+}
+
+.figure .caption{
+    text-align: center;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+pre, tt{
+    font-family: 'Roboto Mono';
+    background: #f4f5f6;
+    padding: 0.1rem 0.3rem;
+}
+
+pre {
+    margin: auto;
+    max-width: 70%;
+    border-left: 0.3rem solid #009688;
+    padding: 0.5rem 1rem;
+    overflow-y: hidden;
+}
+
+strong {
+    font-weight: bold;
+}
+
+</style>
+<style type="text/css">
+
+/*
+*   math2html: convert LaTeX equations to HTML output.
+*
+*   Copyright (C) 2009,2010 Alex Fernández
+*
+*   Released under the terms of the `2-Clause BSD license'_, in short:
+*   Copying and distribution of this file, with or without modification,
+*   are permitted in any medium without royalty provided the copyright
+*   notice and this notice are preserved.
+*   This file is offered as-is, without any warranty.
+*
+* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause
+*
+*   Based on eLyXer: convert LyX source files to HTML output.
+*   http://elyxer.nongnu.org/
+*/
+/* --end--
+* CSS file for LaTeX formulas.
+*/
+
+/* Formulas */
+.formula {
+	text-align: center;
+	font-family: "Droid Serif", "DejaVu Serif", "STIX", serif;
+	margin: 1.2em 0;
+}
+span.formula {
+	white-space: nowrap;
+}
+div.formula {
+	padding: 0.5ex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Basic features */
+a.eqnumber {
+	display: inline-block;
+	float: right;
+	clear: right;
+	font-weight: bold;
+}
+span.unknown {
+	color: #800000;
+}
+span.ignored, span.arraydef {
+	display: none;
+}
+.formula i {
+	letter-spacing: 0.1ex;
+}
+
+/* Alignment */
+.align-left, .align-l {
+	text-align: left;
+}
+.align-right, .align-r {
+	text-align: right;
+}
+.align-center, .align-c {
+	text-align: center;
+}
+
+/* Structures */
+span.overline, span.bar {
+	text-decoration: overline;
+}
+.fraction, .fullfraction {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+.fraction .fraction {
+	font-size: 80%;
+	line-height: 100%;
+}
+span.numerator {
+	display: block;
+}
+span.denominator {
+	display: block;
+	padding: 0ex;
+	border-top: thin solid;
+}
+sup.numerator, sup.unit {
+	font-size: 70%;
+	vertical-align: 80%;
+}
+sub.denominator, sub.unit {
+	font-size: 70%;
+	vertical-align: -20%;
+}
+span.sqrt {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.1ex;
+}
+sup.root {
+	font-size: 70%;
+	position: relative;
+	left: 1.4ex;
+}
+span.radical {
+	display: inline-block;
+	padding: 0ex;
+	font-size: 150%;
+	vertical-align: top;
+}
+span.root {
+	display: inline-block;
+	border-top: thin solid;
+	padding: 0ex;
+	vertical-align: middle;
+}
+span.symbol {
+	line-height: 125%;
+	font-size: 125%;
+}
+span.bigsymbol {
+	line-height: 150%;
+	font-size: 150%;
+}
+span.largesymbol {
+	font-size: 175%;
+}
+span.hugesymbol {
+	font-size: 200%;
+}
+span.scripts {
+	display: inline-table;
+	vertical-align: middle;
+}
+.script {
+	display: table-row;
+	text-align: left;
+	line-height: 150%;
+}
+span.limits {
+	display: inline-table;
+	vertical-align: middle;
+}
+.limit {
+	display: table-row;
+	line-height: 99%;
+}
+sup.limit, sub.limit {
+	line-height: 100%;
+}
+span.symbolover {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	float: right;
+	right: 100%;
+	bottom: 0.5em;
+	width: 0px;
+}
+span.withsymbol {
+	display: inline-block;
+}
+span.symbolunder {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	float: right;
+	right: 80%;
+	top: 0.3em;
+	width: 0px;
+}
+
+/* Environments */
+span.array, span.bracketcases, span.binomial, span.environment {
+	display: inline-table;
+	text-align: center;
+	border-collapse: collapse;
+	margin: 0em;
+	vertical-align: middle;
+}
+span.arrayrow, span.binomrow {
+	display: table-row;
+	padding: 0ex;
+	border: 0ex;
+}
+span.arraycell, span.bracket, span.case, span.binomcell, span.environmentcell {
+	display: table-cell;
+	padding: 0ex 0.2ex;
+	line-height: 99%;
+	border: 0ex;
+}
+/*
+* CSS file for LaTeX formulas, extra stuff:
+* binomials, vertical braces, stackrel, fonts and colors.
+*/
+
+/* Inline binomials */
+span.binom {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 80%;
+}
+span.binomstack {
+	display: block;
+	padding: 0em;
+}
+
+/* Over- and underbraces */
+span.overbrace {
+	border-top: 2pt solid;
+}
+span.underbrace {
+	border-bottom: 2pt solid;
+}
+
+/* Stackrel */
+span.stackrel {
+	display: inline-block;
+	text-align: center;
+}
+span.upstackrel {
+	display: block;
+	padding: 0em;
+	font-size: 80%;
+	line-height: 64%;
+	position: relative;
+	top: 0.15em;
+
+}
+span.downstackrel {
+	display: block;
+	vertical-align: bottom;
+	padding: 0em;
+}
+
+/* Fonts */
+span.mathsf, span.textsf {
+	font-style: normal;
+	font-family: sans-serif;
+}
+span.mathrm, span.textrm {
+	font-style: normal;
+	font-family: serif;
+}
+span.text, span.textnormal {
+	font-style: normal;
+}
+span.textipa {
+	color: #008080;
+}
+span.fraktur {
+	font-family: "Lucida Blackletter", eufm10, blackletter;
+}
+span.blackboard {
+	font-family: Blackboard, msbm10, serif;
+}
+span.scriptfont {
+	font-family: "Monotype Corsiva", "Apple Chancery", "URW Chancery L", cursive;
+	font-style: italic;
+}
+
+/* Colors */
+span.colorbox {
+	display: inline-block;
+	padding: 5px;
+}
+span.fbox {
+	display: inline-block;
+	border: thin solid black;
+	padding: 2px;
+}
+span.boxed, span.framebox {
+	display: inline-block;
+	border: thin solid black;
+	padding: 5px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="document" id="d-visualization-for-the-web-browser">
+<h1 class="title">3D Visualization for the Web Browser</h1>
+
+<div class="section" id="scivijs-overview">
+<h1>SciviJS Overview</h1>
+<div class="section" id="presentation-and-setting-up">
+<h2>Presentation and Setting up</h2>
+<p>Being part of the <strong>OpenDreamKit</strong> project, SciviJS has been conceived in order to offer an open source tool useful for loading, displaying and analysing 3D-mesh-data in a standard web browser. SciviJS doesn't need any additional plugins to visualize the 3D mesh, and is supported by any last version of web browser. This means that it is particularly easy for anybody on any computer to display 3D-mesh-data.</p>
+<p>SciviJS for development contains three packages that you can clone from these commands:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>SciviJS-lib <span class="classifier-delimiter">:</span> <span class="classifier"><code>hg clone https://hg.logilab.org/review/scivijs/scivijs-lib/</code></span></dt>
+<dd><p class="first last">This is the part containing all the library and the main source code for the application to run correctly with the block structure and the definition of the native plug-ins.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SciviJS-gui <span class="classifier-delimiter">:</span> <span class="classifier"><code>hg clone https://hg.logilab.org/review/scivijs/scivijs-gui/</code></span></dt>
+<dd><p class="first last">This is the package containing all the code necessary for the application to be displayed on a page of your web browser.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SciviJS-demo <span class="classifier-delimiter">:</span> <span class="classifier"><code>hg clone https://hg.logilab.org/review/scivijs/scivijs-demo/</code></span></dt>
+<dd><p class="first last">This is the package you will need if you just want to run a demo of SciviJS in your web browser. To do so, after cloning the package to your machine, you need to follow these instructions:</p>
+</dd>
+</dl>
+<pre class="code bash literal-block">
+<span class="name builtin">cd </span>scivijs-demo
+npm run install
+npm run start
+</pre>
+</li>
+</ul>
+<p>and browse to <em>http://localhost:8000</em>.</p>
+</div>
+<div class="section" id="utilization">
+<h2>Utilization</h2>
+<p>SciviJS Visualisation is based on a block structure which hierarchy can be chose by the user, the main block being the 3D object itself on which the user is willing to apply specific effects.</p>
+<blockquote>
+<div class="figure align-left">
+<img alt="hierachy of blocks" src="images/blocks.PNG" style="width: 435.0px; height: 410.5px;" />
+</div>
+</blockquote>
+<p>The hierarchy created by the user can be visualized as a tree where it can be chosen whether to display or not each branch of the tree (one block and all its children blocks.
+As explained in <a class="reference external" href="https://demo.logilab.fr/SciviJS/">https://demo.logilab.fr/SciviJS/</a>, there are already 7 native plug-in blocks, but the user can decide to add his own coded plug-in blocks.
+Until today,the plug-in blocks that can be displayed if the data is consistent with the type of mesh are listed below:</p>
+<ul class="simple">
+<li><strong>Threshold</strong></li>
+<li><strong>ClipPlane</strong></li>
+<li><strong>Slice</strong></li>
+<li><strong>Warp</strong></li>
+<li><strong>VectorField</strong></li>
+<li><strong>Points</strong></li>
+<li><strong>IsoSurface</strong></li>
+</ul>
+</div>
+<div class="section" id="integration-of-custom-blocks">
+<h2>Integration of custom blocks</h2>
+<p>As explained before, the user has the possibility to create his own plug-in blocks. After creating a js file &quot;myBlock.js&quot; saved in <em>scivijs-plugins/scivijs-plugin-myBlock/</em> by following this procedure of 4 steps:</p>
+<ol class="arabic">
+<li><p class="first">Importing the code of the plugin block definition:</p>
+<pre class="code javascript literal-block">
+<span class="keyword declaration">let</span> <span class="name other">SciviJS</span><span class="operator">=</span><span class="name other">require</span><span class="punctuation">(</span><span class="literal string single">'scivijs'</span><span class="punctuation">);</span>
+<span class="keyword declaration">let</span> <span class="name other">PlugInBlock</span> <span class="operator">=</span> <span class="name other">SciviJS</span><span class="punctuation">.</span><span class="name other">PlugInBlock</span><span class="punctuation">;</span>
+<span class="keyword declaration">let</span> <span class="name other">block_registration</span> <span class="operator">=</span> <span class="name other">require</span><span class="punctuation">(</span><span class="literal string single">'./gui/block_registration'</span><span class="punctuation">);</span>
+<span class="keyword declaration">let</span> <span class="name other">widgetsDescription</span> <span class="operator">=</span> <span class="name other">block_registration</span><span class="punctuation">.</span><span class="name other">widgetsDescription</span><span class="punctuation">;</span>
+</pre>
+</li>
+<li><p class="first">Defining your custom block:</p>
+<pre class="code javascript literal-block">
+<span class="keyword reserved">class</span> <span class="name other">myBlock</span> <span class="keyword reserved">extends</span> <span class="name other">PlugInBlock</span> <span class="punctuation">{</span>
+
+    <span class="name other">constructor</span> <span class="punctuation">(</span><span class="name other">parentBlock</span><span class="punctuation">,</span> <span class="name other">defFactor</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="comment single">// Only initialize setters (maybe getters if you want), this,
+</span>        <span class="comment single">// and your custom parameters
+</span>
+        <span class="keyword declaration">let</span> <span class="name other">setters</span> <span class="operator">=</span> <span class="punctuation">{</span>
+            <span class="literal string single">'yourSetter'</span><span class="operator">:</span> <span class="punctuation">(</span><span class="name other">param</span><span class="punctuation">)</span> <span class="operator">=&gt;</span> <span class="punctuation">{</span><span class="keyword">this</span><span class="punctuation">.</span><span class="name other">_yourSetter</span><span class="operator">=</span><span class="name other">param</span><span class="punctuation">;}</span>
+        <span class="punctuation">};</span>
+        <span class="keyword reserved">super</span><span class="punctuation">(</span><span class="name other">parentBlock</span><span class="punctuation">,</span> <span class="name other">setters</span><span class="punctuation">);</span>
+     <span class="punctuation">};</span>
+
+     <span class="comment single">// Method that initialize your node structures and geometries
+</span>    <span class="name other">_process</span> <span class="punctuation">()</span> <span class="punctuation">{</span>
+            <span class="comment single">//Your code here
+</span>    <span class="punctuation">};</span>
+
+    <span class="name other">_custom_function</span><span class="punctuation">(){</span>
+                <span class="comment single">//Your code here
+</span>    <span class="punctuation">}</span>
+
+    <span class="name other">_setInput</span> <span class="punctuation">(</span><span class="name other">dataName</span><span class="punctuation">,</span> <span class="name other">componentNames</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword reserved">super</span><span class="punctuation">.</span><span class="name other">_setInput</span><span class="punctuation">(</span><span class="name other">dataName</span><span class="punctuation">,</span> <span class="name other">componentNames</span><span class="punctuation">);</span>
+        <span class="comment single">//Your code here
+</span>    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+</pre>
+</li>
+<li><p class="first">Create a widget description &quot;block_registration.js&quot; of your new plug in block to store in a repository called ./gui/ , and export it. <em>Example:</em></p>
+<blockquote>
+<pre class="code javascript literal-block">
+<span class="keyword declaration">let</span> <span class="name other">widgetsDescription</span> <span class="operator">=</span> <span class="punctuation">[</span>
+   <span class="punctuation">{</span>
+         <span class="name other">type</span><span class="operator">:</span> <span class="literal string single">'inputData'</span><span class="punctuation">,</span>
+         <span class="name other">inputDataSize</span><span class="operator">:</span> <span class="literal number integer">1</span><span class="punctuation">,</span>
+         <span class="name other">info</span><span class="operator">:</span> <span class="literal string single">'Input vector used for deformation'</span>
+   <span class="punctuation">},</span>
+   <span class="punctuation">{</span>
+         <span class="name other">name</span><span class="operator">:</span> <span class="literal string single">'ZWarp Factor'</span><span class="punctuation">,</span>
+         <span class="name other">type</span><span class="operator">:</span> <span class="literal string single">'FloatSlider'</span><span class="punctuation">,</span>
+         <span class="name other">info</span><span class="operator">:</span> <span class="literal string single">'Factor used for Zwarp effect'</span><span class="punctuation">,</span>
+         <span class="name other">parameter</span><span class="operator">:</span> <span class="literal string single">'defFactor'</span><span class="punctuation">,</span>
+         <span class="name other">min</span><span class="operator">:</span> <span class="operator">-</span><span class="literal number integer">1000</span><span class="punctuation">,</span>
+         <span class="name other">max</span><span class="operator">:</span> <span class="literal number integer">1000</span><span class="punctuation">,</span>
+         <span class="name other">param</span> <span class="operator">:</span> <span class="keyword constant">true</span>
+       <span class="punctuation">}</span> <span class="punctuation">]</span> <span class="punctuation">;</span>
+
+   <span class="name other">module</span><span class="punctuation">.</span><span class="name other">exports</span> <span class="operator">=</span> <span class="name other">widgetsDescription</span><span class="punctuation">;</span>
+</pre>
+</blockquote>
+</li>
+<li><p class="first">Export your new Plugin Block and its widget description</p>
+<blockquote>
+<pre class="code javascript literal-block">
+<span class="name other">module</span><span class="punctuation">.</span><span class="name other">exports</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="name other">block</span><span class="operator">:</span><span class="name other">myBlock</span><span class="punctuation">,</span>
+            <span class="name other">blockType</span><span class="operator">:</span><span class="literal string single">'myBlock'</span><span class="punctuation">,</span>
+            <span class="name other">widgetsDescription</span><span class="operator">:</span><span class="name other">widgetsDescription</span><span class="punctuation">};</span>
+</pre>
+</blockquote>
+</li>
+<li><p class="first">Import your block in scivijs-gui in order to be able to display it, in the file src/SciviJS_GUI.js, and insert it in a plugin array:</p>
+<blockquote>
+<pre class="code javascript literal-block">
+<span class="keyword declaration">let</span> <span class="name other">myBlock</span> <span class="operator">=</span> <span class="name other">require</span><span class="punctuation">(</span><span class="literal string single">'scivijs-plugins/scivijs-plugin-myBlock/myBlock'</span><span class="punctuation">);</span>
+<span class="name other">plug_arr</span><span class="punctuation">.</span><span class="name other">push</span><span class="punctuation">(</span><span class="name other">myBlock</span><span class="punctuation">);</span>
+</pre>
+</blockquote>
+</li>
+<li><p class="first">(<em>optional</em>) Code your WebAssembly block (see below for an quick explanation of WebAssembly) in C++ and store it in ./utils/wasm</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="webassembly-overview">
+<h1>WebAssembly Overview</h1>
+<div class="section" id="presentation">
+<h2>Presentation</h2>
+<p><strong>WebAssembly</strong> is a new tool for the web developer that allows to compile low-level source languages like C, C++ which generates a <em>&quot;.wasm&quot;</em> binary file. That file can then be directly run into the web browser. WebAssembly doesn't come as a replacement of the javascript but as a complement of it. It is designed to run along javascript and share functionalities. The role of the web developer is to decide which part of the code is more interesting for his application to be run by WebAssembly or Javascript.</p>
+<p>This very recent technology is actually created as an open standard for the <a class="reference external" href="https://www.w3.org/community/webassembly">W3C Webassembly Community Group</a>. WebAssembly is enabled for Firefox 52+, Chrome 57+, Edge 15+, Opera 44+, Safari 11+.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>In order to compile your C/C++ code into WebAssembly it is necessary to have a tool like <strong>Emscripten</strong>. This is what can compile and create your WebAssembly module, accesible from your Javascript.
+To install it you can follow the instructions on the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm">Mozilla Developer webpage</a> explaining precisely how to do it depending on your work environment. You can also check the <em>Alon Zakai</em> global presentation of using Emscripten for webassembly on this <a class="reference external" href="https://leefsmp.github.io/Particle-System/slides/index.html#/">site</a>.</p>
+</div>
+<div class="section" id="id1">
+<h2>Utilization</h2>
+<p>Once Emscripten is all set up you can try out to define your own C/C++ functions and compile it with Emscripten using the following command line :</p>
+<pre class="code bash literal-block">
+em++ --bind -g4 -o myJStarget.js myCppCode.cpp -O3 -s <span class="name variable">WASM</span><span class="operator">=</span><span class="literal number">1</span> -s <span class="name variable">BINARYEN_ASYNC_COMPILATION</span><span class="operator">=</span><span class="literal number">0</span> -s <span class="name variable">ALLOW_MEMORY_GROWTH</span><span class="operator">=</span>1
+</pre>
+<p>In this example, several options have been precised for the realization of a particular example:</p>
+<blockquote>
+<ul class="simple">
+<li>-O3 : Optimized type of compilation</li>
+<li>-s WASM=1 : Return format type <em>&quot;.wasm&quot;</em></li>
+<li>-s BINARYEN_ASYNC_COMPILATION=0 : Removal of the asynchronous compilation of WebAssembly</li>
+<li>ALLOW_MEMORY_GROWTH : Allow Webassembly to benefit from a bigger memory space</li>
+<li>--bind : precision for Emscripten to allow <strong>Embind</strong> to make the bindings between C++ functions and Javascript function during the compilation. More precision on Embind <a class="reference external" href="https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html">here</a>.</li>
+<li>-g4 : allows to see the C/C++ source code in your browser's debugger</li>
+</ul>
+</blockquote>
+<p>Note that this compilation will only work if you are in virtual environment which can be activated by <code>source ./emsdk_env.sh</code> , when you are in the repository where you have installed <strong>Emscripten</strong>.
+For a full description of the options available when compiling to WebAssembly, see the <a class="reference external" href="https://github.com/kripken/emscripten/wiki/WebAssembly">github page</a> dedicated to it.</p>
+<p>Your C++ file needs to include the Emscripten and the Embind libraries:</p>
+<pre class="code c++ literal-block">
+<span class="comment preproc">#include &lt;emscripten.h&gt;
+#include &lt;emscripten/bind.h&gt;</span>
+</pre>
+<p>It also needs to precise what are the effective bindings :</p>
+<pre class="code c++ literal-block">
+<span class="name">EMSCRIPTEN_BINDINGS</span><span class="punctuation">(</span><span class="name">test</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+<span class="name">class_</span><span class="operator">&lt;</span><span class="name">class_name</span><span class="operator">&gt;</span><span class="punctuation">(</span><span class="literal string">&quot;class_name&quot;</span><span class="punctuation">)</span>
+             <span class="punctuation">.</span><span class="name">constructor</span><span class="operator">&lt;</span><span class="name">args</span><span class="operator">&gt;</span><span class="punctuation">()</span>
+             <span class="punctuation">.</span><span class="name">property</span><span class="punctuation">(</span><span class="literal string">&quot;prop&quot;</span><span class="punctuation">,</span><span class="operator">&amp;</span><span class="name">Tetra_node_val</span><span class="operator">::</span><span class="name">prop</span><span class="punctuation">)</span>
+             <span class="punctuation">;</span>
+
+<span class="name">function</span><span class="punctuation">(</span><span class="literal string">&quot;function_name&quot;</span><span class="punctuation">,</span><span class="operator">&amp;</span><span class="name">function_name</span><span class="punctuation">,</span><span class="name">allow_raw_pointers</span><span class="punctuation">());</span>
+<span class="punctuation">}</span>
+</pre>
+<p>Each class, type or function that need to be exported to Javascript has to be defined in this part of the C++ code.
+The argument <em>allow_raw_pointers()</em> allows to get rid of the copy of a random object just giving in arguments its address.</p>
+<p>The following  portion of code allows the developer to access his classes and functions directly from the Javascript.
+<em>Example:</em></p>
+<pre class="code javascript literal-block">
+<span class="name other">new_object</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="name other">Module</span><span class="punctuation">.</span><span class="name other">class_name</span><span class="punctuation">(</span><span class="name other">args</span><span class="punctuation">);</span>
+</pre>
+</div>
+</div>
+<div class="section" id="webassembly-for-scivijs">
+<h1>WebAssembly for SciviJS</h1>
+<p>SciviJS being a tool for scientific data visualization on the web, it needs to be really responsive. Javascript is definitely not the best language to use if we want to have effective fast calculations on plugin-blocks such as IsoSurface.</p>
+<div class="section" id="interests">
+<h2>Interests</h2>
+<p>To get rid of that limitation an idea is to use WebAssembly as a substitute to Javascript for these kinds of calculations, and write the algorithm of the Isosurface determination, for example in C++, which is much more appropriate.</p>
+</div>
+<div class="section" id="integration-in-the-determination-of-an-isosurface">
+<h2>Integration in the determination of an isosurface</h2>
+<p>For the integration of the C++ part into the Javascript previously existing, it is necessary to apply all the methodology above-mentioned.</p>
+<p>The idea of the algorithm is to create two binary search trees that contain one node for each tetrahedra of the 3D mesh. Each node of the first tree contains the lowest value of the tetrahedra it represents and the number of the tetrahedra associated, and each node of the second tree contains the biggest value of the tetrahedra and the number of the tetrahedra associated.</p>
+<p>Once those two trees are determined, a neccessary and sufficient condition for a specific tetrahedra to be cut by the isosurface, is to own at least one node with a smaller value than the isovalue, and at least one node with a bigger value than the isovalue.</p>
+<blockquote>
+<div class="figure align-left">
+<img alt="construction of binary search trees" src="images/trees.png" style="width: 519.0px; height: 239.25px;" />
+</div>
+</blockquote>
+<p>To identify nodes that respect both criteria, the first step is to extract the part of the first tree with lower values than the isovalues, and the part of the second tree with bigger values than the isovalue.
+Then, the only remaining operation is calculating the intersection of these two extracted parts from the trees.</p>
+<div class="formula">
+<i>E</i><sub><i>min</i></sub>∩<i>E</i><sub><i>max</i></sub> = <i>Tetras</i><sub><i>intersected</i></sub>
+</div>
+<p>This last operation is what is the most time consuming for the algorithm because it needs to sort two arrays each for each change of isovalue. This time becomes really significant for meshes with a lot of tetrahedrons(more than 100 000).</p>
+</div>
+<div class="section" id="integration-in-the-determination-of-a-slice-surface">
+<h2>Integration in the determination of a Slice surface</h2>
+</div>
+</div>
+</div>
+</body>
+</html>

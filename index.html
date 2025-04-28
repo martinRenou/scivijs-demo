@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> SciviJS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="dist/scivijs_demo.css">
+
+    </head>
+  <body>
+    <!-- Page -->
+    <div class="container">
+
+      <figure class="centerImage">
+        <img src="./images/sciviJS_logo_text.svg"/>
+      </figure>
+
+      <p class="lead title1"> 3D Web Visualization of Scientific data </p>
+      <p class="lead title2"> SciviJS is our brand new <span class="orange_text">open-source</span> Javascript library that makes
+      you able to <span class="orange_text">visualize 3D scientific data</span> in a standard web browser. </p>
+
+
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li class="inactive"><a href="http://opendreamkit.org/">OpenDreamKit</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <h2 class="green_text">
+        <a id="presentation" class="anchor" href="#presentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Presentation </h2>
+      <p> As part of the <strong>OpenDreamKit</strong> project, we needed open-source tools that aims at load, display and analyze 3D-mesh-data in a standard web browser (i.e. without any plugin). The advantage of SciviJS is that you don't need heavy installation on your computer to use it, you will only need the last version of your favorite browser. So it will be very simple to use it, and to share your work with people. </p>
+      <p> You can define your visualization in a dictionary containing urls to your mesh and data and a hierarchy of effects (called block structures). </p>
+      <p> You can see the block structure as following: </p>
+
+      <figure class="centerImage">
+        <img src="./images/blocks.PNG" width="500" height="450" align="middle" />
+      </figure>
+
+      <p> Data blocks are instanciated to load the mesh and defines basic parameters like color, position etc. Blocks are connected together to form a tree that helps build a visual analysis of your mesh data. Each block receives data (like mesh variables, color and position) from its parent and can modify them independently. </p>
+
+      <p> SciviJS is thought as it is really simple to create <strong>your own plug in block</strong>. </p>
+
+      <p> As of today, there is 7 types of native plug-in blocks: </p>
+      <ul>
+        <li> <strong>Threshold</strong>: hide areas of your mesh based on a variable's value and bound parameters </li>
+        <li> <strong>ClipPlane</strong>: hide a part of the mesh by cutting it with a plane </li>
+        <li> <strong>Slice</strong>: make a slice of your mesh </li>
+        <li> <strong>Warp</strong>: deform the mesh along the direction of an input vector data </li>
+        <li> <strong>VectorField</strong>: represent the input vector data with arrow glyphs </li>
+        <li> <strong>Points</strong>: represent the data with points </li>
+        <li> <strong>IsoSurface</strong>: create an iso-surface based on a variable's value </li>
+      </ul>
+
+      <h2 class="green_text">
+        <a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Demonstration </h2>
+      <p> Now try yourself ! You can dynamically change every parameters of this block description, even <strong>create new blocks by right-clicking on blocks</strong> in the tree if you want. You also can change the block description with <strong>Load</strong> button.</p>
+
+      <div class="btn-group" role="group">
+        <div class="dropdown">
+          <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Load
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a id="bfield1"> Magnetic Field 1 </a>
+            </li>
+            <li>
+              <a id="bfield2"> Magnetic Field 2 </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a id="Piston"> Piston 1 </a>
+            </li>
+            <li>
+              <a id="pistonGros"> Piston 2 </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a id="2Dmesh"> 2D mesh </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="GUIContainer"></div>
+
+      <h2 class="green_text">
+        <a id="future works" class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Future works </h2>
+      <ul>
+        <li> Integration to <a href="http://jupyter.org/">Jupyter Notebook</a> with support of .vtk files. (Work in progress !)</li>
+        <li> Support of time dependent data. </li>
+        <li> Visualization of streaklines/particle traces. </li>
+        <li> Display the color map legend and global/local landmarks on the screen. </li>
+      </ul>
+
+      <h3 class="green_text">
+        <a id="Authors and Contributors" class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Authors and Contributors
+      </h3>
+      <p> SciviJS is a Javascript library based on <a href="https://threejs.org/">ThreeJS</a> created by <a href="https://fr.linkedin.com/in/martin-renou-7398a4106">Martin Renou</a> for <a href="https://www.logilab.fr/">Logilab</a>. Some of the features are inspired by what <a href="https://github.com/YuanxiangFranck/">Franck Wang</a> did during his internship at Logilab. This work is a part of the  <a href="http://opendreamkit.org/">OpenDreamKit</a> project. </p>
+
+      <figure class="centerImage">
+        <img src="./images/logilab.png" width="200" height="93" />
+        <img src="./images/OpenDreamKit.svg" width="212" height="151" />
+      </figure>
+    </div>
+
+    <!-- Main -->
+    <script src = "./module_isosurface.js"></script>
+    <script src="dist/scivijs_demo.js" ></script>
+
+  </body>
+</html>

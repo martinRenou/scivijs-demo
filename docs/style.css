@@ -1,0 +1,87 @@
+/* @import url("https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"); */
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700'); */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i|Roboto+Mono');
+/* @import url("https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css"); */
+
+body {
+    font-family: 'Merriweather', 'Times New Roman', serif;
+    font-size: 1em;
+    color: #444;
+    box-sizing: border-box;
+    font-weight: 300;
+    letter-spacing: .01em;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+hr.footer {
+    display: none;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.document,.footer{
+    position: relative;
+    width: 100%;
+    max-width: 65.0rem;
+    margin: 0 auto;
+    padding: 0 2.0rem;
+    padding-bottom: 6rem;
+    box-sizing: inherit;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    border-top: 1px solid grey;
+}
+
+.section p {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 25px 0;
+    padding: 25px 0;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 45px;
+    text-align: center;
+}
+
+.figure.align-center{
+   margin: 3rem auto; 
+}
+
+.figure .caption{
+    text-align: center;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+pre, tt{
+    font-family: 'Roboto Mono';
+    background: #f4f5f6;
+    padding: 0.1rem 0.3rem;
+}
+
+pre {
+    margin: auto;
+    max-width: 70%;
+    border-left: 0.3rem solid #009688;
+    padding: 0.5rem 1rem;
+    overflow-y: hidden;
+}
+
+strong {
+    font-weight: bold;
+}

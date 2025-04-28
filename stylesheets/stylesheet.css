@@ -1,0 +1,34 @@
+body {
+	padding: 0;
+	margin: 20;
+	font-size: 14px !important;
+	line-height: 1.5;
+	color: #333 !important;
+	overflow: scroll;
+}
+
+.title1 {
+  font-variant: small-caps;
+  text-align: center;
+  color: #003237;
+}
+
+.title2 {
+  text-align: center;
+  color: #00616d;
+}
+
+.orange_text {
+  color: #ec8c47;
+}
+
+.green_text {
+  color: #47a0a7;
+}
+
+.centerImage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin : 20px;
+}
